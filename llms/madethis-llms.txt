@@ -1,0 +1,16 @@
+# MadeThis
+
+> MadeThis (madethis.com) is a Y Combinator (Fall 2025) startup based in San Francisco marketed as "Your AI Co-Founder" — a platform of AI employees that build, market, and run a business on the founder's behalf, covering website/app development, Stripe billing, ad campaigns, 24/7 AI support, email/cold outbound, market research, and code generation and deployment. It is a consumer/SMB SaaS product and, as of this writing, publishes no public API, developer portal, SDKs, or API documentation.
+
+## Product
+- [MadeThis home](https://madethis.com): "Your AI Co-Founder" — describe a business idea and AI employees build and run it.
+- [Sign up](https://madethis.com/signup): Start a new business with the AI team.
+- [Pricing](https://madethis.com/#pricing): Starter $49/mo, Growth $79/mo, Scale $199/mo, Enterprise $5,000+/mo.
+
+## Legal
+- [Terms of Service](https://madethis.com/terms)
+- [Privacy Policy](https://madethis.com/privacy)
+
+## Notes
+- No public API, OpenAPI, SDKs, MCP server, webhooks, or developer documentation were found during API Evangelist enrichment (2026-07-20).
+- Backed by: Y Combinator.
