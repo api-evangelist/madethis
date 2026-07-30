@@ -1,8 +1,31 @@
 aid: madethis
-name: Madethis
-description: Madethis is a company surfaced as a portfolio company of y-combinator and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+name: MadeThis
+description: >-
+  MadeThis (madethis.com) is a Y Combinator (Fall 2025) startup based in San
+  Francisco that markets itself as "Your AI Co-Founder" — a platform of AI
+  employees that build, market, and run a business on the founder's behalf. A
+  user describes a business idea and MadeThis autonomously handles website and
+  app development, Stripe-based payment and billing setup, ad-campaign creation
+  and optimization, 24/7 AI customer support, email automation and cold
+  outbound, market and competitor research, and code generation and deployment,
+  iterating on founder feedback. It targets e-commerce, SaaS, agencies, online
+  courses, coaching, and service businesses across Starter, Growth, Scale, and
+  Enterprise tiers. As of this enrichment pass MadeThis publishes no public
+  API, developer portal, SDKs, or API documentation — it is a consumer/SMB SaaS
+  product, so most API-oriented artifacts are not applicable.
 url: https://raw.githubusercontent.com/api-evangelist/madethis/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://madethis.com/opengraph-image
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -11,12 +34,39 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
+- Artificial Intelligence
+- AI Agents
+- Business Automation
+- SaaS
+- Marketing Automation
+- Startup Tools
+- Y Combinator
 apis: []
+common:
+- type: DomainSecurity
+  url: security/madethis-domain-security.yml
+- type: Website
+  url: https://madethis.com
+- type: SignUp
+  url: https://madethis.com/signup
+- type: Pricing
+  url: https://madethis.com/#pricing
+- type: TermsOfService
+  url: https://madethis.com/terms
+- type: PrivacyPolicy
+  url: https://madethis.com/privacy
+- type: LLMsTxt
+  url: llms/madethis-llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-20'
+  status: minimal
+  artifacts_added: 2
+  pass: local-v1
