@@ -2,17 +2,26 @@ aid: madethis
 name: MadeThis
 description: >-
   MadeThis (madethis.com) is a Y Combinator (Fall 2025) startup based in San
-  Francisco that markets itself as "Your AI Co-Founder" — a platform of AI
-  employees that build, market, and run a business on the founder's behalf. A
-  user describes a business idea and MadeThis autonomously handles website and
-  app development, Stripe-based payment and billing setup, ad-campaign creation
-  and optimization, 24/7 AI customer support, email automation and cold
-  outbound, market and competitor research, and code generation and deployment,
-  iterating on founder feedback. It targets e-commerce, SaaS, agencies, online
-  courses, coaching, and service businesses across Starter, Growth, Scale, and
-  Enterprise tiers. As of this enrichment pass MadeThis publishes no public
-  API, developer portal, SDKs, or API documentation — it is a consumer/SMB SaaS
-  product, so most API-oriented artifacts are not applicable.
+  Francisco, founded in 2025 by Jacob Wright, Cambree Bernkopf and Santiago
+  Gomez Paz, that markets itself as "Your AI Co-Founder" and "the autonomous
+  business platform" — a team of AI employees that build, market, and run a
+  business on the founder's behalf. A user describes a business idea and
+  MadeThis autonomously handles website and app development, Stripe-based
+  payment and billing setup, ad-campaign creation and optimization, 24/7 AI
+  customer support, email automation and cold outbound, market and competitor
+  research, and code generation and deployment, iterating on founder feedback.
+  It targets e-commerce, SaaS, agencies, online courses, coaching, and service
+  businesses across Starter ($49/mo), Growth ($79/mo), Scale ($199/mo) and
+  Enterprise (from $5,000/mo) tiers metered in AI-work credits, with an
+  Enterprise line that builds a "company brain" digital twin and trains AI
+  employees on a customer's top performers. MadeThis publishes no public API,
+  developer portal, SDK, CLI or API documentation — every spec path probed on
+  madethis.com and on its Convex product backend api.madethis.com returns 404.
+  The only machine-readable documents any MadeThis host serves are the OIDC and
+  RFC 8414 discovery documents on clerk.madethis.com, a vendor-run identity
+  instance for end-user sign-in. Its Enterprise page notes that customer systems
+  connect through MCP and ACP, which makes MadeThis an MCP consumer rather than
+  an MCP publisher.
 url: https://raw.githubusercontent.com/api-evangelist/madethis/refs/heads/main/apis.yml
 accessModel:
   pricing: unknown
@@ -34,7 +43,7 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-20'
+modified: '2026-08-13'
 tags:
 - Company
 - Artificial Intelligence
@@ -44,6 +53,11 @@ tags:
 - Marketing Automation
 - Startup Tools
 - Y Combinator
+- No-Code
+- Website Builder
+- E-Commerce
+- Small Business
+- AI Employees
 apis: []
 common:
 - type: DomainSecurity
@@ -60,13 +74,49 @@ common:
   url: https://madethis.com/privacy
 - type: LLMsTxt
   url: llms/madethis-llms.txt
+- type: WellKnown
+  url: well-known/madethis-well-known.yml
+- type: Authentication
+  url: authentication/madethis-authentication.yml
+- type: OAuthScopes
+  url: scopes/madethis-scopes.yml
+- type: Conformance
+  url: conformance/madethis-conformance.yml
+- type: Plans
+  url: plans/madethis-plans-pricing.yml
+- type: Support
+  url: https://madethis.com/support
+- type: Login
+  url: https://madethis.com/login
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 x-enrichment:
-  date: '2026-07-20'
-  status: minimal
-  artifacts_added: 2
+  date: '2026-08-13'
+  status: enriched
+  artifacts_added: 10
   pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    MadeThis is an end-user product with no developer program at all: every OpenAPI,
+    Swagger, GraphQL, llms.txt and agent-card path 404s on madethis.com, and its own
+    product backend api.madethis.com answers every path with the Convex router's "No
+    matching routes found", so the only machine-readable documents on any MadeThis host
+    are the OIDC/OAuth discovery files its vendor identity subdomain clerk.madethis.com
+    serves for end-user sign-in.
+  evidence:
+  - url: https://madethis.com/openapi.json
+    status: 404
+  - url: https://api.madethis.com/openapi.json
+    status: 404
+  - url: https://madethis.com/.well-known/agent-card.json
+    status: 404
+  - url: https://madethis.com/llms.txt
+    status: 404
+  - url: https://clerk.madethis.com/.well-known/openid-configuration
+    status: 200
+  checked: '2026-08-13'
