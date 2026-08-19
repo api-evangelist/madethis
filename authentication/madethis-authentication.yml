@@ -1,0 +1,77 @@
+generated: '2026-08-13'
+method: probed
+source: https://clerk.madethis.com/.well-known/openid-configuration
+docs: https://clerk.com/docs/oauth/scoped-access
+scope_note: >-
+  MadeThis publishes no developer API and no API authentication documentation. The auth
+  profile below is NOT derived from an OpenAPI (there is none) — it is read verbatim from
+  the OIDC discovery and RFC 8414 metadata that MadeThis's own identity host,
+  clerk.madethis.com, serves anonymously. Those documents describe how a user (or an
+  OAuth client registered against MadeThis's Clerk instance) signs in to the MadeThis
+  product. They are not a contract for a public MadeThis API. Do not read this artifact
+  as evidence that MadeThis exposes callable endpoints.
+summary:
+  types: [oauth2, openIdConnect]
+  api_key_in: []
+  oauth2_flows: [authorizationCode]
+  pkce: true
+  provider: Clerk (vendor-operated identity, MadeThis-controlled subdomain)
+schemes:
+- name: MadeThisOIDC
+  type: openIdConnect
+  openIdConnectUrl: https://clerk.madethis.com/.well-known/openid-configuration
+  issuer: https://clerk.madethis.com
+  sources: [well-known/madethis-openid-configuration.json]
+- name: MadeThisOAuth2
+  type: oauth2
+  sources: [well-known/madethis-oauth-authorization-server.json]
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://clerk.madethis.com/oauth/authorize
+    tokenUrl: https://clerk.madethis.com/oauth/token
+    refreshUrl: https://clerk.madethis.com/oauth/token
+    scope_count: 7
+endpoints:
+  authorization: https://clerk.madethis.com/oauth/authorize
+  token: https://clerk.madethis.com/oauth/token
+  revocation: https://clerk.madethis.com/oauth/token/revoke
+  introspection: https://clerk.madethis.com/oauth/token_info
+  userinfo: https://clerk.madethis.com/oauth/userinfo
+  jwks: https://clerk.madethis.com/.well-known/jwks.json
+token:
+  id_token_signing_alg: [RS256]
+  client_auth_methods: [client_secret_basic, client_secret_post, none]
+  grant_types: [authorization_code, refresh_token]
+  response_types: [code]
+  response_modes: [form_post, query]
+  code_challenge_methods: [S256]
+  subject_types: [public]
+claims:
+- sub
+- iss
+- aud
+- exp
+- iat
+- email
+- email_verified
+- name
+- given_name
+- family_name
+- preferred_username
+- picture
+- org_id
+logout:
+  backchannel_logout_supported: false
+  frontchannel_logout_supported: false
+x-evidence:
+- url: https://clerk.madethis.com/.well-known/openid-configuration
+  http_status: 200
+  content_type: application/json
+- url: https://clerk.madethis.com/.well-known/oauth-authorization-server
+  http_status: 200
+  content_type: application/json
+- url: https://clerk.madethis.com/.well-known/jwks.json
+  http_status: 200
+  content_type: application/json
+- url: https://madethis.com/openapi.json
+  http_status: 404

@@ -1,0 +1,126 @@
+generated: '2026-08-13'
+method: searched
+source: https://madethis.com/#pricing
+additional_sources:
+- https://madethis.com/enterprise
+scope_note: >-
+  These are MadeThis product subscription tiers, priced in credits of AI-agent work — not
+  API plans. MadeThis publishes no API, so there is no per-call pricing, no metered API
+  quota and no developer tier. Values are transcribed verbatim from the published pricing
+  section (https://madethis.com/#pricing 200) and the Enterprise page
+  (https://madethis.com/enterprise 200) on 2026-08-13. Note that https://madethis.com/pricing
+  is a 404 — the pricing section is a homepage anchor only.
+currency: USD
+billing_period: month
+metering: credits
+plan_count: 4
+plans:
+- name: Starter
+  price: 49
+  currency: USD
+  period: month
+  tagline: Built for early founders ready to scale and build a small business
+  cta: Start for free
+  included:
+    monthly_credits: 5000
+    business_limit: 1
+    domain_type: Subdomain hosting
+    support: Basic
+    autonomous_ai_agent_team: true
+    coding_video_image_agents: true
+    email_and_cold_outbound: true
+    ads_on_autopilot: true
+  limits:
+    daily_credit_cap: 1200
+    daily_cap_behavior: >-
+      Autopilot pauses for the day when the cap is reached; work requested in chat may run
+      to 2x the cap. The cap clears the next day.
+  overage:
+    rollover: false
+    top_up_credits_expire: false
+    note: Unused monthly credits do not roll over; purchased top-up credits never expire.
+- name: Growth
+  price: 79
+  currency: USD
+  period: month
+  tagline: Built for founders ready to scale and build a business
+  cta: Start for free
+  included:
+    monthly_credits: 10000
+    business_limit: 3
+    domain_type: Custom domain
+    support: Priority support
+    autonomous_ai_agent_team: true
+    coding_video_image_agents: true
+    email_and_cold_outbound: true
+    ads_on_autopilot: true
+  limits:
+    daily_credit_cap: 3000
+    daily_cap_behavior: >-
+      Autopilot pauses for the day when the cap is reached; work requested in chat may run
+      to 2x the cap. The cap clears the next day.
+  overage:
+    rollover: false
+    top_up_credits_expire: false
+- name: Scale
+  price: 199
+  currency: USD
+  period: month
+  tagline: Built for power users to create and run a fully automated business
+  cta: Start for free
+  included:
+    monthly_credits: 30000
+    business_limit: 10
+    domain_type: Custom domain
+    support: Dedicated support
+    autonomous_ai_agent_team: true
+    coding_video_image_agents: true
+    email_and_cold_outbound: true
+    ads_on_autopilot: true
+  limits:
+    daily_credit_cap: 20000
+    daily_cap_behavior: >-
+      Autopilot pauses for the day when the cap is reached; work requested in chat may run
+      to 2x the cap. The cap clears the next day.
+  overage:
+    rollover: false
+    top_up_credits_expire: false
+- name: Enterprise
+  price: 5000
+  price_qualifier: starting at
+  currency: USD
+  period: month
+  tagline: AI employees trained on your best people, starting with a free AI audit
+  cta: Talk to us
+  url: https://madethis.com/enterprise
+  booking: https://cal.com/madethis/ai-employee-discovery-call
+  included:
+    metering: none
+    note: Flat monthly rate; unlimited compute and tokens, never metered.
+    dedicated_support_engineer: true
+    company_brain: true
+    channel_and_tool_connections: true
+    scoped_permissions_and_approvals: true
+    trained_on_your_best_people: true
+    ongoing_tuning: true
+    sso: true
+    audit_trail: true
+  price_drivers:
+  - Number of AI employees
+  - Number of custom integrations
+  limits:
+    daily_credit_cap: null
+    note: No metered credit cap published for Enterprise.
+free_trial:
+  available: true
+  note: >-
+    Starter, Growth and Scale all show a "Start for free" call to action and the homepage
+    advertises "Start your business free"; the published pricing does not state the length
+    or credit allowance of the free entry point.
+x-evidence:
+- url: https://madethis.com/
+  http_status: 200
+- url: https://madethis.com/enterprise
+  http_status: 200
+- url: https://madethis.com/pricing
+  http_status: 404

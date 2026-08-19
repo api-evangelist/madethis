@@ -1,0 +1,70 @@
+generated: '2026-08-13'
+method: derived
+source: >-
+  well-known/madethis-openid-configuration.json,
+  well-known/madethis-oauth-authorization-server.json,
+  well-known/madethis-jwks.json, live probes of madethis.com and api.madethis.com
+scope_note: >-
+  Every `conforms: true` below is evidenced by a document MadeThis's own hosts serve. All
+  of those documents belong to the identity layer (Clerk on clerk.madethis.com). MadeThis
+  publishes no API specification, so every contract-level standard is recorded false — an
+  honest measured absence, not a failed harvest. No compliance program, certification
+  (SOC 2 / ISO 27001 / PCI DSS / HIPAA / FedRAMP) or trust center was found published, so
+  no Compliance pointer is emitted.
+standards:
+- id: oauth2
+  conforms: true
+  evidence: >-
+    Authorization Code flow published at
+    https://clerk.madethis.com/.well-known/oauth-authorization-server (HTTP 200)
+- id: rfc8414-authorization-server-metadata
+  conforms: true
+  evidence: /.well-known/oauth-authorization-server returns RFC 8414 metadata (HTTP 200)
+- id: oidc-discovery
+  conforms: true
+  evidence: /.well-known/openid-configuration returns OpenID Connect Discovery 1.0 metadata (HTTP 200)
+- id: rfc7517-jwks
+  conforms: true
+  evidence: /.well-known/jwks.json returns an RS256 JWK set (HTTP 200)
+- id: rfc7636-pkce
+  conforms: true
+  evidence: code_challenge_methods_supported = [S256]
+- id: rfc7009-token-revocation
+  conforms: true
+  evidence: revocation_endpoint = https://clerk.madethis.com/oauth/token/revoke
+- id: rfc7662-token-introspection
+  conforms: true
+  evidence: introspection_endpoint = https://clerk.madethis.com/oauth/token_info
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on madethis.com, api.madethis.com and clerk.madethis.com
+- id: rfc8615-well-known-api-catalog
+  conforms: false
+  evidence: /.well-known/api-catalog returns 404 on every probed host
+- id: openapi
+  conforms: false
+  evidence: no OpenAPI/Swagger at any probed path on madethis.com or api.madethis.com (all 404)
+- id: asyncapi
+  conforms: false
+  evidence: no published event, webhook or streaming surface found
+- id: graphql
+  conforms: false
+  evidence: https://api.madethis.com/graphql returns 404 "No matching routes found"
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: no published API contract to assert an error format against
+- id: a2a-agent-card
+  conforms: false
+  evidence: /.well-known/agent-card.json and /.well-known/agent.json return 404 on all three hosts
+- id: mcp
+  conforms: false
+  evidence: >-
+    MadeThis's Enterprise page states customer systems "connect through MCP & ACP", which
+    makes MadeThis an MCP *client*; no MadeThis-published MCP server endpoint or package
+    was found. See mcp/madethis-mcp.yml.
+summary:
+  standards_asserted: 15
+  conforms_true: 7
+  conforms_false: 8
+  compliance_program_published: false
+  certifications: []

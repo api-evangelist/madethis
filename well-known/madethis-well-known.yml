@@ -1,0 +1,90 @@
+generated: '2026-08-13'
+method: probed
+source: live GET of /.well-known/* on every MadeThis-controlled host found in apis.yml and DNS
+note: >-
+  Three hosts were probed. madethis.com (the marketing/product site, served from Vercel)
+  and api.madethis.com (the product's Convex backend) return no .well-known document at
+  any probed path. The one real hit is clerk.madethis.com — a MadeThis-controlled
+  subdomain (CNAME into Clerk) that serves live OIDC discovery, RFC 8414 OAuth 2.0
+  authorization-server metadata and a JWKS for MadeThis's own Clerk identity instance.
+  That surface is vendor-operated: the documents themselves say so
+  (service_documentation -> clerk.com/docs/oauth/scoped-access, op_tos_uri ->
+  clerk.com/legal/standard-terms), and they describe end-user sign-in for the MadeThis
+  product, NOT a documented first-party developer API. MadeThis publishes no developer
+  API, so there is no api-catalog, no ai-plugin and no security.txt.
+hosts:
+- host: https://madethis.com
+  role: marketing and product site (Vercel)
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://api.madethis.com
+  role: >-
+    product backend (DNS CNAME -> convex.domains). Every path answers HTTP 404
+    "No matching routes found" — a live Convex HTTP-action router with no public routes.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://clerk.madethis.com
+  role: >-
+    MadeThis's Clerk identity instance on a MadeThis-controlled subdomain; issuer in
+    every document is https://clerk.madethis.com
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: application/json
+    file: madethis-openid-configuration.json
+    spec: OpenID Connect Discovery 1.0
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json
+    file: madethis-oauth-authorization-server.json
+    spec: RFC 8414
+  - path: /.well-known/jwks.json
+    status: 200
+    content_type: application/json
+    file: madethis-jwks.json
+    spec: RFC 7517
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+summary:
+  hosts_probed: 3
+  paths_probed: 23
+  documents_found: 3
+  security_txt: false
+  agent_card: false
+  api_catalog: false

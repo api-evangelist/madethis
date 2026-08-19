@@ -1,16 +1,35 @@
 # MadeThis
 
-> MadeThis (madethis.com) is a Y Combinator (Fall 2025) startup based in San Francisco marketed as "Your AI Co-Founder" — a platform of AI employees that build, market, and run a business on the founder's behalf, covering website/app development, Stripe billing, ad campaigns, 24/7 AI support, email/cold outbound, market research, and code generation and deployment. It is a consumer/SMB SaaS product and, as of this writing, publishes no public API, developer portal, SDKs, or API documentation.
+> MadeThis (madethis.com) is a Y Combinator Fall 2025 startup in San Francisco, founded in 2025 by Jacob Wright, Cambree Bernkopf and Santiago Gomez Paz, marketed as "Your AI Co-Founder" and "the autonomous business platform". A founder describes a business idea and a team of AI employees builds and runs it — website and app development, Stripe-based checkout and billing, ad campaign creation and optimization, 24/7 AI customer support, email automation and cold outbound, market and competitor research, and code generation and deployment. An Enterprise line builds a "company brain" digital twin and trains AI employees on a customer's top performers. MadeThis is an end-user SaaS product: it publishes no public API, no developer portal, no SDK, no CLI and no API documentation.
 
 ## Product
-- [MadeThis home](https://madethis.com): "Your AI Co-Founder" — describe a business idea and AI employees build and run it.
-- [Sign up](https://madethis.com/signup): Start a new business with the AI team.
-- [Pricing](https://madethis.com/#pricing): Starter $49/mo, Growth $79/mo, Scale $199/mo, Enterprise $5,000+/mo.
+- [MadeThis home](https://madethis.com): describe a business idea and AI employees build, market, and run it.
+- [Enterprise](https://madethis.com/enterprise): AI employees trained on your best people, from $5,000/mo flat, starting with a free AI audit.
+- [Sign up](https://madethis.com/signup): start a business with the AI team.
+- [Log in](https://madethis.com/login)
+- [iOS app](https://apps.apple.com/us/app/madethis-ai-co-founder/id6762240683): MadeThis — AI Co-Founder.
+- [Customer reviews](https://madethisreviews.com): published founder reviews.
+- [Book an AI employee discovery call](https://cal.com/madethis/ai-employee-discovery-call)
 
-## Legal
+## Pricing
+- [Pricing](https://madethis.com/#pricing): Starter $49/mo (1 business, 5,000 credits/mo, 1,200/day cap, subdomain hosting), Growth $79/mo (3 businesses, 10,000 credits/mo, 3,000/day cap, custom domain), Scale $199/mo (10 businesses, 30,000 credits/mo, 20,000/day cap, custom domain), Enterprise from $5,000/mo flat and unmetered. Note `/pricing` itself is a 404 — the section is a homepage anchor.
+- Credits do not roll over month to month; purchased top-up credits do not expire. The per-day cap pauses autopilot for the day and clears the next day.
+
+## Identity and machine-readable surface
+MadeThis publishes no API specification. The only machine-readable documents any MadeThis host serves are the identity-discovery documents on `clerk.madethis.com`, a MadeThis-controlled subdomain running a vendor (Clerk) identity instance. They describe end-user sign-in to the MadeThis product, not a callable MadeThis API.
+- [OpenID Connect discovery](https://clerk.madethis.com/.well-known/openid-configuration) — issuer `https://clerk.madethis.com`, authorization code flow, PKCE S256, RS256 ID tokens.
+- [OAuth 2.0 authorization server metadata (RFC 8414)](https://clerk.madethis.com/.well-known/oauth-authorization-server) — scopes `openid`, `profile`, `email`, `public_metadata`, `private_metadata`, `offline_access`, `user:org:read`.
+- [JWKS](https://clerk.madethis.com/.well-known/jwks.json)
+
+## Support and legal
+- [Support](https://madethis.com/support) — support@madethis.com
+- [Contact](https://madethis.com/contact)
 - [Terms of Service](https://madethis.com/terms)
 - [Privacy Policy](https://madethis.com/privacy)
 
-## Notes
-- No public API, OpenAPI, SDKs, MCP server, webhooks, or developer documentation were found during API Evangelist enrichment (2026-07-20).
-- Backed by: Y Combinator.
+## Notes for agents
+- There is no MadeThis API, OpenAPI, GraphQL schema, AsyncAPI, webhook catalog, SDK, CLI, Postman collection, agent card or MCP server. Every spec path probed on `madethis.com` and on the product backend `api.madethis.com` returned 404 on 2026-08-13; `api.madethis.com` is a Convex HTTP-action host that answers "No matching routes found" on every path.
+- MadeThis *consumes* MCP rather than publishing it: its Enterprise page states that customer systems beyond the named native integrations "connect through MCP & ACP". Do not treat that as a MadeThis MCP endpoint.
+- `github.com/madethis` is a DIFFERENT company (Made This, Odense, Denmark, madethis.dk). MadeThis (YC F25) has no public GitHub organization.
+- `robots.txt` allows `/` and disallows `/dashboard/`, `/admin/`, `/api/`, `/billing/`.
+- Backed by Y Combinator (Fall 2025).

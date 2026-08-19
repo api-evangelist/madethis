@@ -1,0 +1,57 @@
+generated: '2026-08-13'
+method: probed
+source: https://clerk.madethis.com/.well-known/oauth-authorization-server
+docs: https://clerk.com/docs/oauth/scoped-access
+scope_note: >-
+  Read verbatim from the `scopes_supported` array published by MadeThis's own OAuth 2.0
+  authorization-server metadata (RFC 8414) at clerk.madethis.com. These are the scopes an
+  OAuth client registered against MadeThis's Clerk identity instance can request when a
+  MadeThis user signs in. They are Clerk's standard scoped-access set, not scopes over a
+  MadeThis product API — MadeThis publishes no API reference and no scope documentation of
+  its own. Descriptions below are stated in the terms the OIDC/OAuth specifications and
+  Clerk's scoped-access reference define; MadeThis publishes none.
+schemes:
+- name: MadeThisOAuth2
+  source: well-known/madethis-oauth-authorization-server.json
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://clerk.madethis.com/oauth/authorize
+    tokenUrl: https://clerk.madethis.com/oauth/token
+scopes:
+- scope: openid
+  description: Request an ID token — the OpenID Connect base scope.
+  flows: [authorizationCode]
+  sources: [well-known/madethis-oauth-authorization-server.json, well-known/madethis-openid-configuration.json]
+- scope: profile
+  description: Read the signed-in user's profile claims (name, given_name, family_name, preferred_username, picture).
+  flows: [authorizationCode]
+  sources: [well-known/madethis-oauth-authorization-server.json, well-known/madethis-openid-configuration.json]
+- scope: email
+  description: Read the signed-in user's email address and email_verified claim.
+  flows: [authorizationCode]
+  sources: [well-known/madethis-oauth-authorization-server.json, well-known/madethis-openid-configuration.json]
+- scope: public_metadata
+  description: Read the user's public metadata on the MadeThis Clerk instance.
+  flows: [authorizationCode]
+  sources: [well-known/madethis-oauth-authorization-server.json, well-known/madethis-openid-configuration.json]
+- scope: private_metadata
+  description: Read the user's private metadata on the MadeThis Clerk instance.
+  flows: [authorizationCode]
+  sources: [well-known/madethis-oauth-authorization-server.json, well-known/madethis-openid-configuration.json]
+- scope: offline_access
+  description: Issue a refresh token so the client can act after the access token expires.
+  flows: [authorizationCode]
+  sources: [well-known/madethis-oauth-authorization-server.json, well-known/madethis-openid-configuration.json]
+- scope: 'user:org:read'
+  description: Read the organization membership of the signed-in user (org_id claim).
+  flows: [authorizationCode]
+  sources: [well-known/madethis-oauth-authorization-server.json, well-known/madethis-openid-configuration.json]
+summary:
+  scope_count: 7
+  flows: [authorizationCode]
+  pkce_required_methods: [S256]
+x-evidence:
+- url: https://clerk.madethis.com/.well-known/oauth-authorization-server
+  http_status: 200
+- url: https://clerk.madethis.com/.well-known/openid-configuration
+  http_status: 200

@@ -1,0 +1,41 @@
+generated: '2026-08-13'
+method: searched
+status: none
+source: https://madethis.com/enterprise
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: unknown
+  verified: probed
+note: >-
+  MadeThis ships NO MCP server. This artifact exists to record the opposite finding, which
+  is easy to misread: MadeThis is an MCP *consumer*. Its Enterprise page, describing the
+  tools an AI employee can act in (Google Drive, Gmail, QuickBooks, HubSpot, Notion,
+  Linear, Jira, GitHub, Calendar), states verbatim "Anything beyond this list connects
+  through MCP & ACP" — MadeThis calls a customer's MCP servers, it does not publish one
+  for others to call. No hosted MCP endpoint, no stdio package, and no MCP documentation
+  were found. No MCPServer pointer is wired into apis.yml, and none should be added on the
+  strength of that sentence: consuming MCP is not an agent surface a third party can reach.
+  A candidate tool list cannot be derived either, because MadeThis publishes no OpenAPI to
+  derive one from.
+tools: []
+probes:
+- url: https://madethis.com/.well-known/agent-card.json
+  http_status: 404
+- url: https://api.madethis.com/mcp
+  http_status: 404
+  detail: 'Convex HTTP-action router: "No matching routes found"'
+- url: https://api.madethis.com/sse
+  http_status: 404
+- url: https://registry.npmjs.org/@madethis/sdk
+  http_status: 404
+  detail: no npm package published under the madethis name or scope
+consumer_surface:
+  protocols: [MCP, ACP]
+  context: Enterprise AI-employee integrations with customer systems
+  named_native_integrations:
+    channels: [Slack, Microsoft Teams, Email, SMS, WhatsApp, Telegram, Signal, iMessage, Discord, Voice]
+    tools: [Google Drive, Gmail, QuickBooks, HubSpot, Notion, Linear, Jira, GitHub, Calendar]
+  source: https://madethis.com/enterprise
