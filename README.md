@@ -1,4 +1,4 @@
-# Madethis
+# MadeThis
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,6 +64,103 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Madethis is a company surfaced as a portfolio company of y-combinator and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+MadeThis (madethis.com) is a Y Combinator (Fall 2025) startup based in San Francisco, founded in 2025 by Jacob Wright, Cambree Bernkopf and Santiago Gomez Paz, that markets itself as "Your AI Co-Founder" and "the autonomous business platform" — a team of AI employees that build, market, and run a business on the founder's behalf. A user describes a business idea and MadeThis autonomously handles website and app development, Stripe-based payment and billing setup, ad-campaign creation and optimization, 24/7 AI customer support, email automation and cold outbound, market and competitor research, and code generation and deployment, iterating on founder feedback. It targets e-commerce, SaaS, agencies, online courses, coaching, and service businesses across Starter ($49/mo), Growth ($79/mo), Scale ($199/mo) and Enterprise (from $5,000/mo) tiers metered in AI-work credits, with an Enterprise line that builds a "company brain" digital twin and trains AI employees on a customer's top performers. MadeThis publishes no public API, developer portal, SDK, CLI or API documentation — every spec path probed on madethis.com and on its Convex product backend api.madethis.com returns 404. The only machine-readable documents any MadeThis host serves are the OIDC and RFC 8414 discovery documents on clerk.madethis.com, a vendor-run identity instance for end-user sign-in. Its Enterprise page notes that customer systems connect through MCP and ACP, which makes MadeThis an MCP consumer rather than an MCP publisher.
 
-Backed by: y-combinator
+**Areas:** Company · Artificial Intelligence · AI Agents · Business Automation · Software-as-a-Service · Marketing Automation · Startup Tools · Y Combinator · No-Code · Website Builder · E-Commerce · Small Business
+
+## MadeThis on APIs.io
+
+Everything profiled for MadeThis is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/madethis/](https://apis.io/providers/madethis/)** — or go straight to one of the APIs or properties below.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Madethis Authentication](https://apis.io/security/madethis/madethis-authentication/)
+- [Madethis Domain Security](https://apis.io/security/madethis/madethis-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Madethis Scopes](https://apis.io/scopes/madethis/madethis-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Madethis Plans Pricing](https://apis.io/plans/madethis/madethis-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Madethis Rate Limits](https://apis.io/rate-limits/madethis/madethis-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://madethis.com)
+- [Pricing](https://madethis.com/#pricing)
+- [Sign up](https://madethis.com/signup)
+- [Support](https://madethis.com/support)
+- [Terms of service](https://madethis.com/terms)
+- [Privacy policy](https://madethis.com/privacy)
+
+## API Evangelist rating
+
+**Kin Score 26.1** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 55.4 |
+| Contract quality | 0.0 |
+| Contract governance | 4.5 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 16.7 |
+| Access clarity | 71.1 |
+
+**Agent readiness 13.3** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 31.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/madethis/](https://apis.io/providers/madethis/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for MadeThis: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/madethis/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
